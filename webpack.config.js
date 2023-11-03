@@ -68,7 +68,8 @@ module.exports = {
             return Buffer.from(
               JSON.stringify({
                 ...JSON.parse(content.toString()),
-                name: process.env.npm_package_productName,
+                // name: process.env.npm_package_productName,
+                name: 'youtube-live-chat-flow',
                 description: process.env.npm_package_description,
                 version: process.env.npm_package_version,
               })

@@ -37,3 +37,6 @@ node_modules
 app
 dist
 !.gitkeep
+
+.yarn
+node_modules
