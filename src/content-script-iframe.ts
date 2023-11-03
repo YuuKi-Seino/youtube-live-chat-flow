@@ -168,16 +168,21 @@ const moveChatInputControl = () => {
   if (!input || !messageButtons) {
     return
   }
+
   input.addEventListener('keydown', (e) => {
+    // console.log('ライブチャット拡張機能', e)
     e.stopPropagation()
     const el = e.target as HTMLElement
     switch (e.key) {
       case 'Enter': {
+        // console.log('ライブチャット拡張機能', 'Enter')
         if (!e.isComposing) {
           if (el.innerHTML !== '') {
+            // console.log('ライブチャット拡張機能', messageButtons)
             const sendButton = messageButtons.querySelector<HTMLButtonElement>(
-              '#send-button button#button'
+              '#send-button button'
             )
+            // console.log('ライブチャット拡張機能', sendButton)
             sendButton?.click()
           } else {
             el.blur()
@@ -204,21 +209,23 @@ const moveChatInputControl = () => {
   })
 
   // add description
-  const button = document.createElement('button')
-  button.textContent = 'Chat Input is Moved to Bottom Controls'
-  button.addEventListener('click', () => {
-    input.focus()
-  })
-  const description = document.createElement('div')
-  description.classList.add('ylcf-description')
-  description.append(button)
-  buttons.parentElement?.insertBefore(description, buttons)
+  // const button = document.createElement('button')
+  // button.textContent = 'Chat Input is Moved to Bottom Controls'
+  // button.addEventListener('click', () => {
+  //   input.focus()
+  // })
+  // const description = document.createElement('div')
+  // description.classList.add('ylcf-description')
+  // description.append(button)
+  // buttons.parentElement?.insertBefore(description, buttons)
 
   // add controls
   const controls = document.createElement('div')
   controls.classList.add('ylcf-controller')
-  controls.append(top)
-  controls.append(messageButtons)
+  console.log('ライブチャット拡張機能', controls, top, messageButtons)
+  // disable chat input
+  // controls.append(top)
+  // controls.append(messageButtons)
   rightControls.parentElement?.insertBefore(controls, rightControls)
 
   // setup resize observer
